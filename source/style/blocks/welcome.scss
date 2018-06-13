@@ -1,0 +1,92 @@
+//bg
+.welcome {
+	background: url(../img/bg/bg-mountain.jpg);
+	background-size: cover;
+    background-position: center center;
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+//autorization
+.welcome__authoriz {
+	top: 20px;
+    right: 5%;
+    position: absolute;
+}
+
+.authoriz__link {
+	display: block;
+	float: right;
+	width: 180px;
+	height: 45px;
+	border: 1px solid $white;
+	border-radius: 4px;
+	color: $white;
+
+	&:hover {
+		background-color: $white;
+		color: $darkGreen;
+	}
+}
+
+.authoriz__btn {
+	@include centered(y);
+	position: relative;
+	text-align: center;
+}
+
+//content
+.welcome__content {
+	width: 380px;
+	border-radius: 4px;
+	overflow: hidden;
+	@include centered();
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+.welcome__user {
+	padding: 30px;
+}
+
+.welcome__socials {
+	margin-top: 30px;
+}
+
+.welcome__socials-list {
+	text-align: center;
+}
+
+// nav
+.welcome__nav {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+
+.nav__btn {
+	padding: 15px 31px;
+	color: $white;
+	background-color: rgba(0, 189, 163, 0.8);
+	
+
+	&:hover {
+		background-color: rgba(0, 150, 136, 0.8);
+	}
+}
+
+
+//footer
+.welcome__footer {
+	text-align: center;
+    height: 60px;
+    margin-top: -60px;
+    position: relative;
+    color: $white;
+    font-family: "robotolight";
+}
