@@ -1,0 +1,203 @@
+.hero-blog {
+	//max-height: 395px;
+    background-position: top center;
+}
+.container-hero-blog {
+	top: 50%;
+}
+
+.hero__title_blog {
+	margin-top: 0;
+
+	@include phones {
+		margin-top: 15px;
+	}
+}
+
+.user__blog-title {
+	position: relative;
+	text-align: center;
+}
+
+.user__blog-title_bg {
+	@include centered();
+}
+
+.blog__section-title {
+	color: $white;
+	text-transform: uppercase;
+	
+	padding: 15px 70px;
+	margin-top: 15px;
+
+	@include phones {
+		margin-top: 0;
+	}
+
+	&:after,&:before {
+		background-color: rgba(255,255,255,0.3);
+	}
+}
+
+.user__blog-subtitle {
+	text-align: center;
+	font-size: 16px;
+	font-family: "robotoregular";
+}
+
+//blog
+.blog {
+	@extend %clearfix;
+	position: relative;
+}
+
+.blog__sidebar {
+	float: left;
+	width: 30%;
+	min-height: 1000px;
+	position: relative;
+
+	@include tablets {
+		display: none;
+	}
+}
+
+.blog__sidebar_tablet {
+	display: none;
+
+	@include tablets {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999999;
+		height: 100vh;
+		width: 50%;
+		background-color: rgba(0, 191, 165, 0.87);
+	}
+
+	@include phones {
+		width: 90%;
+	}
+}
+
+.blog__sidebar_tablet_closed {
+	@include tablets {
+		left: -50%;
+	}
+
+	@include phones {
+		left: -90%;
+	}
+}
+
+.blog__articles {
+	float: left;
+	width: 70%;
+	min-height: 1000px;
+	position: relative;
+	padding: 60px;
+
+	@include tablets {
+		width: 100%;
+	}
+}
+
+//sidebar
+.sidebar__container {
+	position: relative;
+	top: 60px;
+	//width: inherit;
+}
+
+.fixed {
+	position: fixed;
+	top: 15px;
+	width: inherit;
+}
+
+.sidebar__container_tablet {
+	@include centered(y);
+	position: relative;
+}
+
+.sidebar__disk_tablet {
+	position: absolute;
+    top: 50%;
+    right: -30px;
+    width: 30px;
+    height: 60px;
+    background-color: $green;
+    box-shadow: 3px 0rem 3px 0rem rgba(0, 0, 0, 0.2);
+    border-radius: 0 30px 30px 0;
+}
+
+.sidebar__item {
+	text-align: right;
+
+	@include tablets {
+		padding: 0 20px;
+	}
+}
+
+.sidebar__link {
+	display: block;
+	color: $grayText;
+	padding: 16px;
+
+	@include tablets {
+		color: $white;
+	}
+
+	&_active {
+		color: $green;
+		border-right: 3px solid $green;
+		font-weight: bold;
+
+		@include tablets {
+			color: $white;
+			border-right: 3px solid $white;
+		}
+	}
+
+	&:hover {
+		color: $green;
+
+		@include tablets {
+			color: $white;
+			font-weight: bold;
+		}
+	}
+}
+
+
+//article
+.article {
+	margin-bottom: 30px;
+}
+
+.article__title {
+	font-family: "bernier_regularregular";
+	font-size: 35px;
+}
+
+.article__date {
+	color: $green;
+	padding: 20px 0;
+}
+
+.empty {
+	min-height: 147px;
+
+	@include screen900 {
+		min-height: 230px;
+	}
+
+	@include tablets {
+		min-height: 250px;
+	}
+
+	@include phones {
+		min-height: 300px;
+	}
+}
