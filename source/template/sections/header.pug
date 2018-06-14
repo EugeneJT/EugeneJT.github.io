@@ -1,0 +1,17 @@
+header.container_header
+	ul.socials.socials_header
+		-
+			icons = [{name:'vk', link:'https://vk.com/eugenejt'}, {name:'gh', link:'https://github.com/EugeneJT'}, {name:'in', link:'https://linkedin.com/'}]
+		each icon in icons
+			li.socials__item
+				a(href=`${icon.link}` target='_blank').socials__link
+					svg.icons.icons__socials.icons__socials_white
+						use(xlink:href=`assets/img/sprite.svg#${icon.name}`)
+			
+	a(id="hamburger" href="#menu").hamburger
+		.hamburger-menu
+
+		//svg.icons.icon__hamburger
+			use(xlink:href='assets/img/sprite.svg#hamburger')
+
+

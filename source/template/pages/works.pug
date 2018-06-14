@@ -1,0 +1,44 @@
+extends ../layout
+
+block title
+	| Мои работы
+
+block content
+	
+	include ../sections/main-menu
+
+	include ../sections/hero
+
+	section.section.works
+		.section__triangles
+			.triangle-container_left
+				svg(
+					viewbox="0 0 1000 100"
+					preserveAspectRatio="none"
+					class="triangle triangle_left triangle_fill_white-works")
+					polygon(points="0,0 0,100 1000,100")
+			.triangle-container_right
+				svg(
+					viewbox="0 0 1000 100"
+					preserveAspectRatio="none"
+					class="triangle triangle_right triangle_fill_white-works")
+					polygon(points="0,100 1000,100 1000,0")
+
+		.works__my-works
+			+title('Мои работы', 'works_header.svg', 'my-works__title', 'my-works__title_text')
+
+			include ../sections/slider
+
+		.works__about-me
+			+title('Контакты', 'about_header.svg', 'about-me__title', 'about-me__title_text')
+
+			section.works__form
+				include ../sections/works_form
+
+			.works__page-up-container
+				a(href='#').works__page-up_link
+					svg.icons.works__page-up_icon(viewBox="0 0 10 10" preserveAspectRatio='none')
+						use(xlink:href='assets/img/sprite.svg#arrow_up')
+
+block footer
+	include ../sections/footer
