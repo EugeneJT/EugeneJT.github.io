@@ -1,0 +1,174 @@
+.about {
+	position: relative;
+}
+
+
+.section__about-colomns {
+	display: flex;
+	flex-direction: row;
+
+	@include tablets {
+		flex-direction: column;
+	}
+}
+
+.about__col {
+	flex: 1;
+	text-align: center;
+
+	&_left {
+		background: $darkWhite;
+		display: flex;
+		flex-direction: row;
+		@include desktop {
+			display: block;
+		}
+	}
+
+	&_right {
+		background: $beige;
+	}	
+}
+
+//left
+
+/*
+.about__col-content {
+	text-align: center;
+	margin: 0 20px 30px;
+	@extend %clearfix;
+
+	@include desktop {
+		margin: 0 80px 40px;
+	}
+
+	@include tablets {
+		margin: 0 150px 45px;
+	}
+
+	@include phones {
+		margin: 10px 10px 30px;
+	}
+}*/
+
+.title {
+	color: $grayTitle;
+	font-family:"bernier_regularregular";
+	font-size: 35px;
+	padding: 70px 70px;
+	display: inline-block;
+	position: relative;
+	background-size: 100% 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	text-align: center;
+	@extend %titleDecor;
+
+	@include phones {
+		background-size: 90% 90%;
+	}
+
+	@media screen and (max-width: 524px) {
+	    margin: 0 30px;
+	}
+}
+
+
+.title-container-flex {
+	flex: 1;
+}
+
+.about__section-title {
+	
+}
+
+.about__section-title_text {
+	font-size: 63px;
+}
+
+.user-about {
+	flex: 1;
+	margin: 0 80px;
+
+	@include tablets {
+		margin: 0 145px;
+	}
+
+	@include phones {
+		margin: 0 15px;
+	}
+}
+
+.user-about__picture {
+	margin-top: 20px;
+	margin-bottom: 35px;
+	text-align: center;
+	width: 100%;
+
+	@include desktop {
+		margin-top: 0;
+	}
+
+	img {
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+.subtitle {
+	color: $grayTitle;
+	font-family:"bernier_regularregular";
+	font-size: 35px;
+	padding: 40px 70px;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	@extend %titleDecor;
+
+	@media screen and (max-width: 524px) {
+	    margin: 0 30px;
+	}
+}
+
+.user-about__text {
+	font-size: 16px;
+	color: $grayText;
+	text-align: left;
+
+	p {
+		margin-bottom: 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+//right
+.about-data {
+	margin: 0 40px;
+
+	@include tablets {
+		margin: 0 145px;
+	}
+
+	@include phones {
+		margin: 0 15px;
+	}
+}
+
+.about-user-info__text {
+	font-size: 16px;
+	color: $grayText;
+	text-align: left;
+}
+
+.about-data__content {
+	margin: 20px 0;
+}
+
+.skills-group__title {
+	@include tablets {
+		text-align: center;
+	}
+}

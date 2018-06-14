@@ -1,0 +1,47 @@
+.skills-list {
+	display: flex;
+	flex-wrap: wrap;
+	//justify-content: space-between;
+
+	@include tablets {
+		justify-content: center;
+	}
+}
+
+.skills__title {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.skills-list__item {
+	vertical-align: top;
+	margin-right: 25px;
+	margin-bottom: 35px;
+
+	&:last-child {
+		//margin-right: 0;
+	}
+}
+
+.skills-group__title {
+	font-size: 28px;
+	color: $grayText;
+	margin-bottom: 15px;
+	font-weight: 500;
+}
+
+.skills__circle-under {
+	stroke: #dfdcd5;
+}
+
+.skills__circle-above {
+	stroke: $green;
+}
+
+.skills__text {
+	margin-bottom: 50px;
+
+	p {
+		color: $grayText;
+	}
+}

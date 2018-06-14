@@ -1,0 +1,77 @@
+extends ../layout
+
+block title
+	| Обо мне
+
+block content
+
+	include ../sections/main-menu
+
+	include ../sections/hero
+
+	section.section.about
+
+		.section__triangles
+			.triangle-container_left
+				svg(
+				viewbox="0 0 1000 100"
+				preserveAspectRatio="none"
+				class="triangle triangle_left triangle_fill_white-about")
+					polygon(points="0,0 0,100 1000,100")
+			.triangle-container_right
+				svg(
+				viewbox="0 0 1000 100"
+				preserveAspectRatio="none"
+				class="triangle triangle_right triangle_fill_beige-about")
+					polygon(points="0,100 1000,100 1000,0")
+
+		.section__about-colomns
+			.about__col.about__col_left
+				.title-container-flex
+					+title('Обо мне', 'about_header.svg', 'about__section-title', 'about__section-title_text')
+				.user-about
+					.user-about__picture
+						img(src="assets/img/content/user.png", alt="user").user-about__picture-avatar
+					.user-about__subtitle.subtitle
+						h3.subtitle_text
+							| Кто я
+					.user-about__text
+						p 
+							| Я веб-разработчик из Санкт-Петербурга. Мне 24 года. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+			
+			.about__col.about__col_right
+				.about-data
+					.about-data__desc.about-user-info
+						.about-user-info__subtitle.subtitle
+							.subtitle-text
+								| Чем я могу быть вам полезен
+						.about-user-info__text
+
+					.about-data__content
+						ul.skills-group
+							each skillGroup in ['Frontend', 'Backend', 'WorkFlow']
+								li.skills-group__item
+									.skills-group__section
+										.skills-group__title= skillGroup
+										ul.skills-list
+											- for (var i = 0; i < 4; i++)
+												li.skills-list__item
+													.skill
+														svg(viewbox="0 0 100 100" preserveAspectRatio="none").skill__circle
+															circle(cx="50" cy="50" r="40").skills__circle-under
+															circle(cx="50" cy="50" r="40").skills__circle-above
+														- var skillsFrontend = ['HTML5', 'CSS3', 'JavaScript', 'jQuery']
+														- var skillsBackend = ['PHP', 'Node.js', 'npm']
+														- var skillsWorkflow = ['Git', 'Gulp', 'Bower']
+														if skillGroup=='Frontend'
+															.skill__title=skillsFrontend[i]
+														else if skillGroup=='Backend'
+															.skill__title=skillsBackend[i]
+														else if skillGroup=='WorkFlow'
+															.skill__title=skillsWorkflow[i]
+													
+
+	include ../sections/map
+
+block footer
+	include ../sections/footer
