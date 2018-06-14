@@ -1,0 +1,35 @@
+.section__triangles {
+	@extend %clearfix;
+	position: absolute;
+	bottom: 100%;
+	width: 100%;
+}
+
+.triangle-container_left, .triangle-container_right {
+	float: left;
+	width: 50%;
+	position: relative;
+}
+
+
+.triangle {
+	display: block;
+	width: 100%;
+	height: 110px;
+}
+
+.triangle_fill_white-about {
+	fill: $darkWhite;
+}
+
+.triangle_fill_beige-about {
+	fill: $beige;
+}
+
+.triangle_fill_white-blog {
+	fill: $white;
+}
+
+.triangle_fill_white-works {
+	fill: #faf8f0;
+}
