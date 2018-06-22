@@ -8,34 +8,6 @@
     position: absolute;
 }
 
-//autorization
-.welcome__authoriz {
-	top: 20px;
-    right: 5%;
-    position: absolute;
-}
-
-.authoriz__link {
-	display: block;
-	float: right;
-	width: 180px;
-	height: 45px;
-	border: 1px solid $white;
-	border-radius: 4px;
-	color: $white;
-
-	&:hover {
-		background-color: $white;
-		color: $darkGreen;
-	}
-}
-
-.authoriz__btn {
-	@include centered(y);
-	position: relative;
-	text-align: center;
-}
-
 //content
 .welcome__content {
 	width: 380px;
