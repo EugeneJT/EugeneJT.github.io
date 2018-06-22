@@ -77,7 +77,10 @@
 	background-color: rgba(0, 189, 163, 0.8);
 	width: 50%;
 	text-align: center;
-	
+
+	&:first-child {
+	border-right: 2px solid white;
+}
 
 	&:hover {
 		background-color: rgba(0, 150, 136, 0.8);
