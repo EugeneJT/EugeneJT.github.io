@@ -1,6 +1,5 @@
 //  сохраняем всю сцену параллакса
-var parallaxContainer = document.getElementById('parallax'),
-    layers = parallaxContainer.children;
+var layers = document.getElementsByClassName('parallax__layer');
 
 //передаем функцию обработчик
 

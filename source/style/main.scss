@@ -28,23 +28,22 @@ $darkGreen : #009688;
 // blocks
 @import "blocks/preloader";
 @import "blocks/parallax";
-@import "blocks/user";
-@import "blocks/socials";
 @import "blocks/hero";
 @import "blocks/header";
-@import "blocks/footer";
 @import "blocks/main-menu";
+@import "blocks/user";
+@import "blocks/socials";
+@import "blocks/about";
 @import "blocks/triangles";
+@import "blocks/skills";
+@import "blocks/skill";
+@import "blocks/map";
 @import "blocks/contacts";
+@import "blocks/footer";
 
 @import "blocks/welcome";
+
 
 @import "blocks/works";
 @import "blocks/slider";
 @import "blocks/works_form";
-
-@import "blocks/about";
-@import "blocks/map";
-@import "blocks/skill";
-@import "blocks/skills";
-

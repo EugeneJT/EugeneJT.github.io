@@ -1,7 +1,7 @@
 {
-  "name": "my-builder",
+  "name": "loftschool-builder",
   "version": "1.0.0",
-  "author": "Eugene",
+  "author": "a.kalin",
   "license": "ISC",
   "scripts": {},
   "devDependencies": {

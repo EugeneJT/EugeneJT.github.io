@@ -1,100 +1,90 @@
-var preloader = (function () {
+//------ Preloader Module -------//
 
-    var init = function () {
-        _setUpListeners();
-        _viewPreloader();
-        // то, что должно произойти сразу
-    };
+var Preloader = (function() {
+	
+	var preloader = $('.preloader'),
+		body = $('body'),
+		percentsTotal = 0; //сколько картинок загружено
 
-    var _setUpListeners = function () {
-        // прослушка событий...
-    };
+	//-Понадобятся-:
+		//1.метод, который будет вычленять пути до картинок и формировать массив
+		//2.метод, котрый считает и выставляет кол-во загруженных процентов
+		//3.метод вставки картинки и в зависимости от этого высчитывания процентов
 
-    var _viewPreloader = function () {
+	//1.набор картинок
+	var _imgPath = $('*').map(function(index, element) {
+		var backgroundImg = $(element).css('background-image'),
+			img = $(element).is('img'),
+			path = ' '; //чем заполнять
 
-        if($(window).width() < 1200) {
-            return false;
-        }
+		//если бэкграунд картинка существует
+		if (backgroundImg != 'none') {
+			path = backgroundImg.replace('url("', '').replace('")', ''); //делаем чистый путь до картинки
+		}
 
-        $('.preloader').show();
+		//если есть картинка
+		if (img) {
+			path = $(element).attr('src');
+		}
 
-        // определяем массив для хранения картинок
-        var imgs = [];
+		//если наполнение не пустое
+		if (path) return path
+	});
 
-        // проходим по всем элементам страницы, где находим все картинки
-        $.each($('*'), function() {
-            var
-                $this = $(this),
-                background = $this.css('background-image'), // значение фона каждого элемента
-                img = $this.is('img'); // картинка, вставленная через тег <img>
+	//2.посчитать процент
+	var _setPercents = function(totalPercent, currentPercent) {
+		var percents = Math.ceil(currentPercent / totalPercent * 100); //чтобы округлялось в большую сторону и доходило до 100%
+		
+		$('.preloader__percents').text(percents + '%');
 
-            // задаем условие наличия фоновой картинки
-            if (background != 'none') {
-                // создаем path, где храним путь картинки в виде http://img_1.jpg
-                var path = background.replace('url("', '').replace('")', '');
-                imgs.push(path); // добавляем путь картинки в массив imgs
+		//если 100 и более %, то прячем прелоадер
+		if (percents >= 100) {
+			preloader.delay(500);
+			preloader.fadeOut('slow', function() {
+				body.removeClass('body-preload');
+			});
+		}
+	};
 
-            }
+	//3.загрузить картинку и вставить процент
+	var _loadImages = function(images) {
 
-            // в случае с картинкой, заданной через тег <img>, в path кладем значение атрибута src
-            if (img) {
-                var path = $this.attr('src');
+		//если картинок нет вообще, то прячем прелоадер
+		if (!images.length) {
+			preloader.delay(500);
+			preloader.fadeOut('slow', function() {
+				body.removeClass('body-preload');
+			});
+		}
 
-                if (path) {
-                    imgs.push(path);
-                }
-            }
+		//если картинки есть, то используем стандартный метод для массивов
+		images.forEach(function(image, index, imagesArray) {
 
-        });
+			//создаем картинку заново (фейково)
+			var fakeImage = $('<img>', {
+				attr : {
+					src : image
+				}
+			});
 
-        var percentsTotal = 1;
+			//проверяем загрузилось ли изображение
+			//error - если ошибка в пути картинки, то все равно загрузить
+			fakeImage.on('load error', function() {
+				percentsTotal++;
+				_setPercents(imagesArray.length, percentsTotal);
+			});
+		});
 
-        // определяем загрузилась ли каждая картинка с путем из массива imgs
-        for (var i = 0; i < imgs.length; i++) {
-            // для этого создаем image, куда кладем тег img c атрибутом src
-            // таким образом эмулируем, как будто все картинки (в т.ч. и фоновые) заданы через <img>
-            var image = $('<img>', {
-                attr: {
-                    src: imgs[i]
-                }
-            });
+	};
 
-            image.on({
-                load : function () {
-                    setPercents(imgs.length, percentsTotal);
-                    percentsTotal++;
-                },
+	return {
+		init: function() {
+			body.addClass('body-preload');
 
-                error : function () {
-                    percentsTotal++;
-                }
-            });
+			//т.к. метод .map() возвращает объект, то преобразуем его в массив
+			var imgsArray = _imgPath.toArray();
 
-        }
-
-        function setPercents (total, current) {
-            var percent = Math.ceil(current / total * 100);
-
-            if (percent >= 10) {
-                $('.preloader').css({
-                    'background-image': 'url(assets/img/bg_preload.jpg)',
-                    'background-size': 'cover'
-                });
-            }
-
-            if (percent >= 100) {
-                $('.preloader').fadeOut();
-            }
-
-            $('.preloader__percents').text(percent + '%');
-        };
-
-    };
-
-    return {
-        init: init
-    };
-
+			_loadImages(imgsArray);
+		}
+	}
 })();
-
-preloader.init();
