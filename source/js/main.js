@@ -3,6 +3,7 @@
 $(document).ready(function() {
 	Preloader.init();
 
+
 	if ($('#hamburger').length) {
 		MainMenu.init();
 	}
@@ -19,7 +20,4 @@ $(document).ready(function() {
 		ContactForm.init();
 	}
 
-	if ($('#blog').length) {
-		BlogMenu.init();
-	}
 });
