@@ -10,7 +10,7 @@ var  moveLayers = function (e) {
 
     [].slice.call(layers).forEach(function (layer, i) {        // в метод массива slice передать в качестве this наши слои (псевдомассив(коллекцию), чтобы можно было использовать методы массива
         var
-            divider = i/100,
+            divider = i/50,
             positionX = initialX * divider,
             positionY = initialY * divider,
             layerStyle = layer.style,                       //анимируем слой, сохраняем стиль слоя
